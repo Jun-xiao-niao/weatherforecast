@@ -7,16 +7,18 @@ public class WeatherSystemTest {
 
     public static void main(String[] args) {
 
-        //更新城市信息
-        //updatecity();
+        //想用哪个功能，运行对应方法就可以啦！
 
-        //更新天气信息
-        //updateweather();
+        //更新城市信息，调用的是updatedatabase.UpdateCity类
+        updatecity();
 
-        //查询3个城市的信息
-        //queryCity();
+        //更新天气信息，调用的是updatedatabase.UpdateWeather类
+        updateweather();
 
-        //分别查询3个城市的天气信息
+        //查询3个城市的信息，调用的是querydatabase.QueryCity类
+        queryCity();
+
+        //分别查询3个城市的天气信息，调用的是QueryWeather.queryWeather类
         queryWeather("北京");
         queryWeather("上海");
         queryWeather("福州");
