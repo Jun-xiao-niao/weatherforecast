@@ -17,18 +17,18 @@ import java.util.zip.GZIPInputStream;
 import static sqlconnection.connection.getConnection;
 
 public class UpdateCity {
-    public static void main(String[] args) {
+    public static void updatecity() {
 
         String url1 = "https://geoapi.qweather.com/v2/city/lookup?key=8623308df361462796e4d3906390e866&location=beijing";
         String url2 = "https://geoapi.qweather.com/v2/city/lookup?key=8623308df361462796e4d3906390e866&location=shanghai";
         String url3 = "https://geoapi.qweather.com/v2/city/lookup?key=8623308df361462796e4d3906390e866&location=fuzhou";
-        City city1 = method1(url1);  //北京
-        City city2 = method1(url2);  //上海
-        City city3 = method1(url3);  //福州
+        method1(url1);  //北京
+        method1(url2);  //上海
+        method1(url3);  //福州
 
     }
 
-    public static City method1(String str) {
+    public static void method1(String str) {
 
         String s = "";  //定义返回的JSON字符串为s
 
@@ -43,7 +43,6 @@ public class UpdateCity {
             while ((line = br.readLine()) != null) {
                 res.append(line);
             }
-            System.out.println(res);
             s = res.toString();
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -56,16 +55,18 @@ public class UpdateCity {
         JSONArray jsonArray = jsonObject.getJSONArray("location");
         JSONObject J = jsonArray.getJSONObject(0);
 
-        //生成对象city
+        //获得了city的信息
         String id = J.getString("id");
         String name = J.getString("name");
         String lat = J.getString("lat");
         String lon = J.getString("lon");
         int intId = Integer.parseInt(id);
+
+        //生成对象city，并打印更新的信息
         City city = new City(intId, name, lon, lat);
         System.out.println(city);
 
-        //连接数据库，更新数据
+        //连接数据库，更新数据库的数据
         String sql = "update city set id =?, lon =?, lat =? where name=?";
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -81,8 +82,6 @@ public class UpdateCity {
             // TODO: handle exception
             e.printStackTrace();
         }
-
-        return city;
 
     }
 

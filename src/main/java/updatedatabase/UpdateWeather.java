@@ -19,24 +19,24 @@ import java.util.zip.GZIPInputStream;
 import static sqlconnection.connection.getConnection;
 
 public class UpdateWeather {
-    public static void main(String[] args) {
+    public static void updateweather() {
 
         String url1 = "https://devapi.qweather.com/v7/weather/3d?key=8623308df361462796e4d3906390e866&location=101010100";
         String url2 = "https://devapi.qweather.com/v7/weather/3d?key=8623308df361462796e4d3906390e866&location=101020100";
         String url3 = "https://devapi.qweather.com/v7/weather/3d?key=8623308df361462796e4d3906390e866&location=101230101";
-        Weather Weather100 = method1(url1, "北京", 100);  //北京今日
-        Weather Weather101 = method1(url1, "北京", 101);  //北京明日
-        Weather Weather102 = method1(url1, "北京", 102);  //北京后日
-        Weather Weather200 = method1(url2, "上海", 200);  //上海今日
-        Weather Weather201 = method1(url2, "上海", 201);  //上海明日
-        Weather Weather202 = method1(url2, "上海", 202);  //上海后日
-        Weather Weather300 = method1(url3, "福州", 300);  //福州今日
-        Weather Weather301 = method1(url3, "福州", 301);  //福州明日
-        Weather Weather302 = method1(url3, "福州", 302);  //福州后日
+        method1(url1, "北京", 100);  //北京今日
+        method1(url1, "北京", 101);  //北京明日
+        method1(url1, "北京", 102);  //北京后日
+        method1(url2, "上海", 200);  //上海今日
+        method1(url2, "上海", 201);  //上海明日
+        method1(url2, "上海", 202);  //上海后日
+        method1(url3, "福州", 300);  //福州今日
+        method1(url3, "福州", 301);  //福州明日
+        method1(url3, "福州", 302);  //福州后日
 
     }
 
-    public static Weather method1(String str, String name, int id) {
+    public static void method1(String str, String name, int id) {
 
         String s = "";  //定义返回的JSON字符串为s
 
@@ -51,7 +51,6 @@ public class UpdateWeather {
             while ((line = br.readLine()) != null) {
                 res.append(line);
             }
-            System.out.println(res);
             s = res.toString();
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -64,15 +63,17 @@ public class UpdateWeather {
         JSONArray jsonArray = jsonObject.getJSONArray("daily");
         JSONObject J = jsonArray.getJSONObject(id % 100);
 
-        //生成对象weather
+        //获得了weather的信息
         String fxData = J.getString("fxDate");
         String tempMax = J.getString("tempMax");
         String tempMin = J.getString("tempMin");
         String textDay = J.getString("textDay");
+
+        //生成对象weather，并打印更新的信息
         Weather weather = new Weather(id, name, fxData, tempMax, tempMin, textDay);
         System.out.println(weather);
 
-        //连接数据库，更新数据
+        //连接数据库，更新数据库的数据
         String sql = "update weather set fxData =?, tempMax =?, tempMin =?, textDay =?  where id=?";
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -90,7 +91,6 @@ public class UpdateWeather {
             e.printStackTrace();
         }
 
-        return weather;
     }
 
 }
