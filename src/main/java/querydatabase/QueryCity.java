@@ -14,7 +14,7 @@ import static sqlconnection.connection.getConnection;
 public class QueryCity {
 
     public static void queryCity() {
-        String sql = "select * from city";
+        String sql = "select * from city LIMIT 10 OFFSET 0";
         Connection conn;
         PreparedStatement pstmt;
         ResultSet rs;

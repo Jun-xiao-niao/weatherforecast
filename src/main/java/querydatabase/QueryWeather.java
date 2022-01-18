@@ -14,7 +14,7 @@ import static sqlconnection.connection.getConnection;
 public class QueryWeather {
 
     public static void queryWeather(String name) {
-        String sql = "select * from weather WHERE name =\'" + name + "\'";
+        String sql = "select * from weather WHERE name =\'" + name + "\' LIMIT 10 OFFSET 0";
         Connection conn;
         PreparedStatement pstmt;
         ResultSet rs;
