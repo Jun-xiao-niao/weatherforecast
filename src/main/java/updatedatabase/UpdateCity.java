@@ -4,14 +4,15 @@ import dataobject.City;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import java.sql.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.zip.GZIPInputStream;
 
 import static sqlconnection.connection.getConnection;
@@ -44,8 +45,6 @@ public class UpdateCity {
                 res.append(line);
             }
             s = res.toString();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -72,14 +71,13 @@ public class UpdateCity {
         PreparedStatement pstmt;
         try {
             conn = getConnection();
-            pstmt = (PreparedStatement) conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, intId);
             pstmt.setString(2, lon);
             pstmt.setString(3, lat);
             pstmt.setString(4, name);
             pstmt.executeUpdate();
         } catch (SQLException e) {
-            // TODO: handle exception
             e.printStackTrace();
         }
 

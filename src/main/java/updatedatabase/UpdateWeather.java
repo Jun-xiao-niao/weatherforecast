@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
@@ -52,8 +51,6 @@ public class UpdateWeather {
                 res.append(line);
             }
             s = res.toString();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,7 +84,6 @@ public class UpdateWeather {
             pstmt.setInt(5, id);
             pstmt.executeUpdate();
         } catch (SQLException e) {
-            // TODO: handle exception
             e.printStackTrace();
         }
 
