@@ -23,7 +23,6 @@ public class WeatherSystemTest {
         queryWeather("上海");
         queryWeather("福州");
 
-
     }
 
 }

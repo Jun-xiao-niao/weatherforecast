@@ -40,7 +40,9 @@ public class QueryWeather {
             // TODO: handle exception
             e.printStackTrace();
         }
-        System.out.println(weatherList);
+        for (Weather w : weatherList) {
+            System.out.println(w);
+        }
     }
 
 }

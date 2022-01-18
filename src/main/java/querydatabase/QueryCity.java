@@ -1,6 +1,7 @@
 package querydatabase;
 
 import dataobject.City;
+import dataobject.Weather;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -38,7 +39,9 @@ public class QueryCity {
             // TODO: handle exception
             e.printStackTrace();
         }
-        System.out.println(cityList);
+        for (City c : cityList) {
+            System.out.println(c);
+        }
     }
 
 }
