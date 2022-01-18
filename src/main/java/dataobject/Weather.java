@@ -68,7 +68,6 @@ public class Weather {
     @Override
     public String toString() {
         return "CityDailyWeather{" +
-                "\"id\":\"" + id + "\"" +
                 ", \"name\":\"" + name + "\"" +
                 ", \"fxData\":\"" + fxData + "\"" +
                 ", \"tempMax\":\"" + tempMax + "\"" +
