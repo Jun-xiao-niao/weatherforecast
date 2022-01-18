@@ -18,6 +18,8 @@ public class WeatherSystemTest {
 
         //分别查询3个城市的天气信息
         queryWeather("北京");
+        queryWeather("上海");
+        queryWeather("福州");
 
 
     }
