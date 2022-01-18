@@ -1,6 +1,5 @@
 package querydatabase;
 
-import dataobject.City;
 import dataobject.Weather;
 
 import java.sql.Connection;
@@ -18,13 +17,13 @@ public class QueryWeather {
         String sql = "select * from weather WHERE name =\'" + name + "\'";
         Connection conn;
         PreparedStatement pstmt;
-        ResultSet rs = null;
+        ResultSet rs;
         //创建一个集合对象用来存放查询到的数据
         List<Weather> weatherList = new ArrayList<>();
         try {
             conn = getConnection();
-            pstmt = (PreparedStatement) conn.prepareStatement(sql);
-            rs = (ResultSet) pstmt.executeQuery();
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String fxData = rs.getString("fxData");
@@ -37,7 +36,6 @@ public class QueryWeather {
                 weatherList.add(weather);
             }
         } catch (SQLException e) {
-            // TODO: handle exception
             e.printStackTrace();
         }
         for (Weather w : weatherList) {
