@@ -75,8 +75,8 @@ public class UpdateWeather {
 
         //连接数据库，更新数据库的数据
         String sql = "update weather set fxData =?, tempMax =?, tempMin =?, textDay =?  where id=?";
-        Connection conn = null;
-        PreparedStatement pstmt = null;
+        Connection conn;
+        PreparedStatement pstmt;
         try {
             conn = getConnection();
             pstmt = (PreparedStatement) conn.prepareStatement(sql);

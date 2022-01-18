@@ -68,8 +68,8 @@ public class UpdateCity {
 
         //连接数据库，更新数据库的数据
         String sql = "update city set id =?, lon =?, lat =? where name=?";
-        Connection conn = null;
-        PreparedStatement pstmt = null;
+        Connection conn;
+        PreparedStatement pstmt;
         try {
             conn = getConnection();
             pstmt = (PreparedStatement) conn.prepareStatement(sql);

@@ -1,7 +1,6 @@
 package querydatabase;
 
 import dataobject.City;
-import dataobject.Weather;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,9 +15,9 @@ public class QueryCity {
 
     public static void queryCity(){
         String sql = "select * from city";
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
+        Connection conn;
+        PreparedStatement pstmt;
+        ResultSet rs;
         //创建一个集合对象用来存放查询到的数据
         List<City> cityList = new ArrayList<>();
         try {

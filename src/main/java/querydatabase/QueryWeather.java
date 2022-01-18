@@ -16,8 +16,8 @@ public class QueryWeather {
 
     public static void queryWeather(String name) {
         String sql = "select * from weather WHERE name =\'" + name + "\'";
-        Connection conn = null;
-        PreparedStatement pstmt = null;
+        Connection conn;
+        PreparedStatement pstmt;
         ResultSet rs = null;
         //创建一个集合对象用来存放查询到的数据
         List<Weather> weatherList = new ArrayList<>();
