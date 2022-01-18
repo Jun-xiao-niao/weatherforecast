@@ -11,7 +11,7 @@
  Target Server Version : 80027
  File Encoding         : 65001
 
- Date: 18/01/2022 09:25:14
+ Date: 18/01/2022 11:19:47
 */
 
 SET NAMES utf8mb4;
@@ -53,14 +53,14 @@ CREATE TABLE `weather`  (
 -- ----------------------------
 -- Records of weather
 -- ----------------------------
-INSERT INTO `weather` VALUES (100, '北京', '2022-01-17', '4', '-8', '晴');
-INSERT INTO `weather` VALUES (101, '北京', '2022-01-18', '3', '-7', '晴');
-INSERT INTO `weather` VALUES (102, '北京', '2022-01-19', '0', '-8', '多云');
-INSERT INTO `weather` VALUES (200, '上海', '2022-01-17', '11', '6', '阴');
-INSERT INTO `weather` VALUES (201, '上海', '2022-01-18', '12', '5', '晴');
-INSERT INTO `weather` VALUES (202, '上海', '2022-01-19', '14', '6', '多云');
-INSERT INTO `weather` VALUES (300, '福州', '2022-01-17', '12', '11', '阴');
-INSERT INTO `weather` VALUES (301, '福州', '2022-01-18', '13', '11', '小雨');
-INSERT INTO `weather` VALUES (302, '福州', '2022-01-19', '19', '11', '多云');
+INSERT INTO `weather` VALUES (100, '北京', '2022-01-18', '3', '-7', '晴');
+INSERT INTO `weather` VALUES (101, '北京', '2022-01-19', '0', '-8', '多云');
+INSERT INTO `weather` VALUES (102, '北京', '2022-01-20', '0', '-7', '多云');
+INSERT INTO `weather` VALUES (200, '上海', '2022-01-18', '11', '5', '晴');
+INSERT INTO `weather` VALUES (201, '上海', '2022-01-19', '14', '5', '多云');
+INSERT INTO `weather` VALUES (202, '上海', '2022-01-20', '10', '4', '多云');
+INSERT INTO `weather` VALUES (300, '福州', '2022-01-18', '13', '11', '小雨');
+INSERT INTO `weather` VALUES (301, '福州', '2022-01-19', '18', '11', '多云');
+INSERT INTO `weather` VALUES (302, '福州', '2022-01-20', '16', '11', '阴');
 
 SET FOREIGN_KEY_CHECKS = 1;
