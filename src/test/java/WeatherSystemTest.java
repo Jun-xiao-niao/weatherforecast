@@ -9,16 +9,16 @@ public class WeatherSystemTest {
 
         //想用哪个功能，运行对应方法就可以啦！
 
-        //更新城市信息，调用的是updatedatabase.UpdateCity类
+        //从和风天气更新数据库里的城市信息，调用的是updatedatabase.UpdateCity类
         updatecity();
 
-        //更新天气信息，调用的是updatedatabase.UpdateWeather类
+        //从和风天气更新数据库里的天气信息，调用的是updatedatabase.UpdateWeather类
         updateweather();
 
-        //查询3个城市的信息，调用的是querydatabase.QueryCity类
+        //从数据库里查询3个城市的信息，调用的是querydatabase.QueryCity类
         queryCity();
 
-        //分别查询3个城市的天气信息，调用的是QueryWeather.queryWeather类
+        //从数据库里分别查询3个城市的天气信息，调用的是QueryWeather.queryWeather类
         queryWeather("北京");
         queryWeather("上海");
         queryWeather("福州");
