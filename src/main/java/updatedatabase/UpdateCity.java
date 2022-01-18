@@ -3,7 +3,7 @@ package updatedatabase;
 import dataobject.City;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-
+import java.sql.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
